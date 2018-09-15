@@ -15,7 +15,7 @@ export default new Vuex.Store({
             // TODO: add a new todo
             state.todos.push(payload)
         },
-        commitCompleteTodo (state, todo) {
+        commitToggleTodo (state, todo) {
             todo.done = !todo.done
         }
     },
@@ -28,8 +28,8 @@ export default new Vuex.Store({
             // TODO: commit initial todos to the store
             localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
         },
-        dispatchCompleteTodo (context, payload: Todo) {
-            context.commit('commitCompleteTodo', payload)
+        dispatchToggleTodo (context, payload: Todo) {
+            context.commit('commitToggleTodo', payload)
         },
     }
 })

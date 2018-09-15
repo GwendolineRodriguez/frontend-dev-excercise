@@ -2,20 +2,31 @@
     <div class="home">
         <h1>My Todos</h1>
           <div class="newtodo">
-            <input placeholder="+add new" class="todoinput" v-model="title">
-            <button class="btn todotype yellow" @click="addNewTodo('yellow')"></button>
+            <input placeholder="   +add new" class="todoinput cleargrey" v-model="title">
+            <div class="absolute-pos">
+              <button class="btn todotype yellow" @click="addNewTodo('yellow')"></button>
+              <button class="btn todotype red" @click="addNewTodo('red')"></button>
+              <button class="btn todotype blue" @click="addNewTodo('blue')"></button>
+              <button class="btn todotype green" @click="addNewTodo('green')"></button>
+            </div>
           </div>
+          <ul class="todo-list">
           <TodoItem
             v-for="(todo, index) in todos.filter(todo => !todo.done)"
             :todo="todo"
             :key="index+'-01'">
           </TodoItem>
-        <h2>Done</h2>
-          <TodoItem
-            v-for="(todo, index) in todos.filter(todo => todo.done)"
-            :todo="todo"
-            :key="index+'-02'">
-          </TodoItem>
+          </ul>
+          <div class="donefilter">
+            <h2>Done</h2>
+            <ul class="todo-list">
+              <TodoItem
+                v-for="(todo, index) in todos.filter(todo => todo.done)"
+                :todo="todo"
+                :key="index+'-02'">
+              </TodoItem>
+            </ul>
+          </div>
       <!-- TODO: Loop thru every todo and display a todo item component, using props to pass data to the components -->
     </div>
 </template>
@@ -36,7 +47,7 @@ export default class Home extends Vue {
     {
       title: "Grocery shopping",
       date: "20/08/2018",
-      color: "orange",
+      color: "yellow",
       done: false
     },
     {
@@ -65,15 +76,17 @@ export default class Home extends Vue {
 
   addNewTodo(newcolor: string) {
     // TODO: add a new todo to the store
-    let newdate: string = this.getDate();
-    let newtodo: Todo = {
-      title: this.title,
-      date: newdate,
-      color: newcolor,
-      done: false
-    };
-    this.$store.dispatch("dispatchAddNewTodo", newtodo);
-    this.title = '';
+    if (this.title != "") {
+      let newdate: string = this.getDate();
+      let newtodo: Todo = {
+        title: this.title,
+        date: newdate,
+        color: newcolor,
+        done: false
+      };
+      this.$store.dispatch("dispatchAddNewTodo", newtodo);
+      this.title = "";
+    }
   }
 
   getDate() {
