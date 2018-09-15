@@ -2,8 +2,8 @@
     <div class="home">
         <h1>My Todos</h1>
           <div class="newtodo">
-            <input placeholder="   +add new" class="todoinput cleargrey" v-model="title">
-            <div class="absolute-pos">
+            <input placeholder="+add new" class="todoinput cleargrey" v-model="title">
+            <div class="absolute-pos marg-button">
               <button class="btn todotype yellow" @click="addNewTodo('yellow')"></button>
               <button class="btn todotype red" @click="addNewTodo('red')"></button>
               <button class="btn todotype blue" @click="addNewTodo('blue')"></button>

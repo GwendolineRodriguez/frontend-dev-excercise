@@ -57,6 +57,8 @@ h3 {
   display: inline-block;
   border: none;
   border-radius: 25px;
+  padding-left: 11px;
+  box-sizing: border-box;
 }
 .newtodo {
   width: 100%;
@@ -67,7 +69,6 @@ h3 {
   right: 0;
   position: absolute;
   top: 0;
-  margin-right: 4px;
 }
 .todotype {
   border: none;
@@ -102,5 +103,8 @@ h3 {
   width: 100%;
   height: 100%;
   opacity: 0.5;
+}
+.marg-button {
+  margin-right: 6px;
 }
 </style>

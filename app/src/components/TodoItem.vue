@@ -42,6 +42,7 @@ h3 {
 }
 .date-pos {
   padding-top: 9px;
+  margin-right: 4px;
 }
 .date {
   color: rgba(126, 126, 126, 1);
